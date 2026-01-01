@@ -1,0 +1,28 @@
+
+.button {
+    background-color: #163A34;
+    border: none;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #395852;
+}
+
+/* .button:focus {
+  outline: solid 3px #163A34;
+} */
+
+.icon-button {
+  background-color: white;
+  border: #E0E6E3 solid 1px;
+  border-radius: 8px;
+  padding: 8px 4px;
+  height: 60px;
+  width: 60px;
+}
+
