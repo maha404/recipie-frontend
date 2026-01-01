@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Button from './components/Button'
 import IconButton from './components/IconButton'
 import SearchBar from './components/SearchBar'
@@ -7,8 +7,7 @@ import './App.css'
 
 function App() {
 
-  
-
+  const [mealplan, setMealplan] = useState<any[]>([]);
 
   useEffect(() => {
     axios.get('http://localhost:5250/recipie')
@@ -21,7 +20,8 @@ function App() {
 
     axios.get('http://localhost:5250/mealplan/week?year=2025&week=52')
       .then(response => {
-        console.log('Ingredient endpoint response:', response.data);
+        console.log('Mealplan:', response.data);
+        setMealplan(response.data);
       })
       .catch(error => {
         console.error('Error accessing ingredient endpoint:', error);
@@ -34,7 +34,13 @@ function App() {
       <IconButton />
       <SearchBar />
       <div style={{display: 'flex', columnGap: '3rem'}}>
-        
+
+        {mealplan && mealplan.map((plan: any) => (
+          <div key={plan.date}>
+            <h3>{plan.date}</h3>
+            
+          </div>
+        ))}
       </div>
     </>
   )
